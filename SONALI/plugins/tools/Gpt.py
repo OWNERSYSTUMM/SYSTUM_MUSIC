@@ -23,10 +23,10 @@ async def chat_gpt(bot, message):
         await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
         if len(message.command) < 2:
             await message.reply_text(
-            "❍ ᴇxᴀᴍᴘʟᴇ:\n\n/chatgpt ᴡʜᴏ ɪs ᴛʜᴇ ᴏᴡɴᴇʀ ᴏғ ˹ ʙᴀʙʏ-ᴍᴜsɪᴄ ™˼𓅂?")
+            "❍ ᴇxᴀᴍᴘʟᴇ:\n\n/chatgpt ᴡʜᴏ ɪs ᴛʜᴇ ᴏᴡɴᴇʀ ᴏғ ˹ sʏsᴛᴜᴍ-ᴍᴜsɪᴄ ˼𓅂?")
         else:
             a = message.text.split(' ', 1)[1]
             r=api.gemini(a)["results"]
-            await message.reply_text(f" {r} \n\n❍ᴘᴏᴡᴇʀᴇᴅ ʙʏ➛ʙᴧʙʏ-ᴍᴜsɪᴄ™", parse_mode=ParseMode.MARKDOWN)     
+            await message.reply_text(f" {r} \n\n❍ᴘᴏᴡᴇʀᴇᴅ ʙʏ➛sʏsᴛᴜᴍ-ᴍᴜsɪᴄ", parse_mode=ParseMode.MARKDOWN)     
     except Exception as e:
         await message.reply_text(f"❍ ᴇʀʀᴏʀ: {e} ")
