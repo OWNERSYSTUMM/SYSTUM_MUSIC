@@ -40,25 +40,25 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
     if 0 < umm <= 10:
-        bar = "🅢—————————"
+        bar = "🅓︎—————————"
     elif 10 < umm < 20:
-        bar = "—🅞————————"
+        bar = "—🅚︎————————"
     elif 20 <= umm < 30:
-        bar = "——🅝———————"
+        bar = "——🅟︎———————"
     elif 30 <= umm < 40:
-        bar = "———🅐——————"
+        bar = "———🅥︎——————"
     elif 40 <= umm < 50:
         bar = "————♡—————"
     elif 50 <= umm < 60:
-        bar = "—————🅡————"
+        bar = "—————🅓︎————"
     elif 60 <= umm < 70:
-        bar = "——————🅐———"
+        bar = "——————🅚︎———"
     elif 70 <= umm < 80:
-        bar = "———————🅙——"
+        bar = "———————🅟︎——"
     elif 80 <= umm < 95:
-        bar = "————————🅐—"
+        bar = "————————🅥︎—"
     else:
-        bar = "——————————♡"
+        bar = "—————————♡"
 
     buttons = [
         [
@@ -74,12 +74,21 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data="GetTimer",
             )
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
-    ]
+      [
+            InlineKeyboardButton(
+                text="𝖮ᴡɴᴇʀ 🥀", url="https://t.me/its_vikky_ydv",
+            ),
+            InlineKeyboardButton(
+                text="𝖲ᴜᴘᴘᴏʀᴛ 🥀", url="https://t.me/exampurrs",
+            )
+        ],
+         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        ]
+
     return buttons
 
 
-def stream_markup(_, chat_id):
+def stream_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -87,9 +96,18 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+         ],
+        [
+            InlineKeyboardButton(
+                text="𝖮𝗐𝗇𝖾𝗋🥀", url="https://t.me/its_vikky_ydv",
+            ),
+            InlineKeyboardButton(
+                text="𝖲𝗎𝗉𝗉𝗈𝗋𝗍🥀", url="https://t.me/exampurrs",
+            )
         ],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
+
     return buttons
 
 
