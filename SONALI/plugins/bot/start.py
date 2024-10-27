@@ -3,7 +3,7 @@ from pyrogram import filters
 from pyrogram.errors import ChannelInvalid
 from pyrogram.enums import ChatType, ChatMembersFilter
 
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
