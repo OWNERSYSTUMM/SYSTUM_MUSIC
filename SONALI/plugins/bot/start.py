@@ -21,7 +21,7 @@ from SONALI.utils.database import (
 )
 from SONALI.utils.decorators.language import LanguageStart
 from SONALI.utils.formatters import get_readable_time
-from SONALI.utils.inline import help_pannel, private_panel, start_panel
+from SONALI.utils.inline import help_pannel, private_panel, music_start_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
@@ -173,3 +173,14 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
+            return
+
+
+@app.on_callback_query(filters.regex("go_to_start"))
+@LanguageStart
+async def go_to_home(client, callback_query: CallbackQuery, _):
+    out = music_start_panel(_)
+    await callback_query.message.edit_text(
+        text=_["start_2"].format(callback_query.message.from_user.mention, app.mention),
+        reply_markup=InlineKeyboardMarkup(out),
+    )
